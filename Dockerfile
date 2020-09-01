@@ -10,3 +10,5 @@ RUN pipenv install --ignore-pipfile --system
 ENV FLASK_APP=myapp.py
 EXPOSE 5000
 ENTRYPOINT flask run --host=0.0.0.0
+
+# Note that grouping items today could bring large gains in build times due to caching

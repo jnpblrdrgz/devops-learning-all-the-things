@@ -1,0 +1,23 @@
+version: '3'
+# this point to the version of docker-compose api level used
+services:
+  api:
+    image: myapp:latest
+    build: .
+    #this is where the Dockerfile is located and runs a "docker build" here
+    ports:
+      - "5000:5000"
+  db:
+      image: postgres
+      restart: always
+      environment:
+        POSTGRESS_USER: postgres
+        POSTGRES_PASSWORD: example
+      volumes:
+        - "dbdata:/var/lib/postgresql/data"
+        # this 'volumes' indicates the tag and the location as tied to the tage in order to generate the volume
+
+
+volumes:
+    dbdata:
+
